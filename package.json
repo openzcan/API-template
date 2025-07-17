@@ -1,0 +1,12 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "description": "myproject API",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "dependencies": {
+    "parcel": "^2.13.3"
+  }
+}

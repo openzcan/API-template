@@ -1,0 +1,51 @@
+
+
+<div class="col " style="border-right: 3px solid rgb(204, 204, 204);">
+
+  <div class="row welcome-title-row" style="margin-top: 30px;">
+    <div class="col welcome-title" >
+      <div  >Are you sure you want to delete your account?. </div>
+    </div>
+  </div>
+
+  <div class="row welcome-title-row" style="margin-top: 30px;">
+    <div class="col welcome-title" >
+      <div  >This is NOT recoverable, all of your data will be deleted.</div>
+    </div>
+  </div>
+
+  <div class="row welcome-title-row" style="margin-top: 30px;">
+    <div class="col welcome-title" >
+      <div  >Scan this QR code with the app to delete your account.</div>
+    </div>     
+  </div>
+
+  <div class="row">
+    
+    <div class="col my-3" id="user_account_qrcode" >
+      
+    </div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+let map = {
+  'userId': {{.ID}},
+  'action': 'deleteAccount',
+  'token': {{.Token}},
+  'email': {{.Email}}
+}
+
+let text = JSON.stringify(map)
+var qrcode = new QRCode(document.getElementById("user_account_qrcode"), {
+  text: text,
+  width: 256,
+  height: 256,
+  colorDark : "#000000",
+  colorLight : "#ffffff",
+  correctLevel : QRCode.CorrectLevel.H
+});
+</script>

@@ -1,0 +1,89 @@
+<div id="invite-view">
+  <div class="container" style="width: 100%; margin-top: 10px;">
+    <div class="row ">
+      <div class="col "><img class="max-width" border="0" src="https://myproject.org/img/logo.png" alt=""></div>
+    </div>
+    <div class="row ">
+      <div class="col " style="border-right: 3px solid rgb(204, 204, 204);">
+
+
+        <div>
+          <form class="form px-2 px-sm-2 px-lg-3" hx-delete="/user/account/delete" hx-swap="outerHTML">
+
+            <div class="first_step row welcome-title-row" style="margin-top: 80px;">
+              <div class="col welcome-title" >
+                Please enter your details to delete your account. 
+              </div>
+            </div>
+
+            <div class="first_step row welcome-title-row" style="margin-top: 20px;">
+              <div class="col welcome-title" >
+                At the end of this process you will be presented with a QR code which you can scan with the app
+                to delete your account.
+              </div>
+            </div>
+
+            <div class="row welcome-title-row" style="margin-top: 30px;">
+
+              <div class="hidden col my-3" id="react_component" style="display: none;">
+
+              </div>
+
+            </div>
+
+            <div  class=" form-group animate__animated animate__fadeInUp wow">
+              <label>
+                <div style="vertical-align: inherit;">Name: </div>
+              </label>
+              <input type="text" id="name" name="name" class="form-control" value="{{.Name}}">
+            </div>
+
+            <div  class=" form-group animate__animated animate__fadeInUp wow">
+              <label>
+                <div style="vertical-align: inherit;">Phone number: </div>
+              </label>
+              <input type="text" id="phone" name="phone" class="form-control" value="{{.Phone}}">
+            </div>
+
+            <div  class=" form-group animate__animated animate__fadeInUp wow">
+              <label>
+                <div style="vertical-align: inherit;">Email: </div>
+              </label>
+              <input type="email" id="email" name="email" class="form-control" value="{{.Email}}">
+            </div>
+
+
+            <button id="join_button"  class=" btn btn-primary rounded-pill mt-3 py-3 col-12 col-sm-10 col-md-6 col-lg-6 col-xl-4 ml-auto d-block">
+              <div style="vertical-align: inherit;">Continue</div>
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pb-2 mt-2 text-center ">
+      <div>
+        <p class="mt-0 mb-0">
+        <div style="vertical-align: inherit;">
+          <div style="vertical-align: inherit;">© Copyright 2023 mydomain.com All Rights Reserved</div>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/babel" data-presets="es2015,react">
+  function App() {
+    return (
+      <div >Join the club!</div>
+    );
+  }
+  ReactDOM.render(<App />, document.getElementById('react_component'));
+
+  
+</script>

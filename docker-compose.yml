@@ -1,0 +1,45 @@
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myAPI
+    # restart: always
+    command: make watch
+    environment:
+      DEV_MODE: "true"
+      USE_DOCKER: "true"
+      MIGRATE_TABLES: "true"
+      FORCE_PUSH_NOTIFICATIONS: "false"
+      LOG_SQL: "true"      
+      RUN_TASK_QUEUE: "true"
+      PORT: 3003
+    ports:
+      - 3003:3003
+    depends_on:
+      - db
+      - redis
+    user: 1000:1000
+    volumes:
+      - ./:/app
+
+  db:
+    image: postgis/postgis:17-3.5
+    container_name: myDB
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydatabase
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
+
+  redis:
+    container_name: myRedis
+    image: redis
+    ports:
+      - 6379:6379
+

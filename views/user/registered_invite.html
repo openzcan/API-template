@@ -1,0 +1,51 @@
+
+
+  <div class="col " style="border-right: 3px solid rgb(204, 204, 204);">
+
+    <div class="row welcome-title-row" style="margin-top: 30px;">
+      <div class="col welcome-title" >
+        <div style="vertical-align: inherit;">That's it, your account has been created. </div>
+      </div>
+    </div>
+
+    <div class="row welcome-title-row" style="margin-top: 30px;">
+      <div class="col welcome-title" >
+        <div style="vertical-align: inherit;">Scan this QR code with the app to connect the app to your account.</div>
+      </div>     
+    </div>
+
+    <div class="row welcome-title-row" style="margin-top: 30px;">
+      <div class="col welcome-title" >
+        <div style="vertical-align: inherit;">Or enter this code "{{.Token}}" manually.</div>
+      </div>     
+    </div>
+
+    <div class="row">
+      
+      <div class="col my-3" id="user_account_qrcode" >
+        
+      </div>
+
+    </div>
+  </div>
+
+
+
+<script type="text/javascript">
+  let map = {
+    'userId': {{.ID}},
+    'action': 'addDevice',
+    'token': {{.Token}},
+    'email': {{.Email}}
+  }
+
+  let text = JSON.stringify(map)
+  var qrcode = new QRCode(document.getElementById("user_account_qrcode"), {
+    text: text,
+    width: 256,
+    height: 256,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+  </script>

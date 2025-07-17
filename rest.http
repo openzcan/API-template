@@ -1,0 +1,74 @@
+
+
+###
+GET http://localhost:7008/api/v1/business/user/4/businesses
+
+###
+GET http://localhost:7008/api/v1/business/8/roles
+
+###
+GET http://localhost:7008/api/v1/provider/8/customers
+
+###
+GET http://localhost:7008/api/v1/location/states/USA
+
+###
+GET http://localhost:7008/api/v1/location/cities/CA/USA
+
+###
+PUT  http://localhost:7008/api/v1/user/1022/location/41.471234/-81.711403 HTTP/1.1
+content-type: application/json
+
+{
+  "Data": "2024-05-09T11:30:45Z"
+}
+
+
+###
+GET  http://localhost:7008/api/v1/test/user/set_password/2/ertwertert HTTP/1.1
+
+
+###
+GET  http://dev.myproject.com/api/v1/test/user/set_password/1042/wqeudgewkqjdgq HTTP/1.1
+
+###
+GET http://localhost:7008/healthcheck/redis/dsgfa984gjasgdf84a7gfaigf HTTP/1.1
+
+###
+GET http://localhost:7008/healthcheck/database/dsgfa984gjasgdf84a7gfaigf HTTP/1.1
+###
+ 
+
+###
+GET https://dev.myproject.com/api/v1/test/user/set_token/2/12345 HTTP/1.1
+ 
+ 
+### Location
+# group: LocationArea
+# @name add location area
+POST http://127.0.0.1:7008/api/v1/location/1/area HTTP/1.1
+Content-Type: application/json
+
+{
+  "locationId": 1,
+  "businessId":10,
+  "name": "kitchen"
+}
+
+### Location
+# group: LocationArea
+# @name update location area
+PUT http://127.0.0.1:7008/api/v1/location/101/area/12 HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 12,
+  "locationId": 101,
+  "businessId":10,
+  "name": "bar"
+}
+
+### Location
+# group: LocationArea
+# @name delete location area
+DELETE http://127.0.0.1:7008/api/v1/location/101/area/12
